@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido | Dashboard</title>
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
 
@@ -19,10 +19,11 @@
     </div>
 
     <script type="module">
-        import { supabase } from './js/supabase.js';
+        import { supabase } from './src/js/supabase.js';
 
         const userNameDisplay = document.getElementById('user-name');
         const logoutBtn = document.getElementById('logout-btn');
+
         async function checkUser() {
             const { data: { user } } = await supabase.auth.getUser();
 

@@ -1,17 +1,11 @@
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-/**
- * --- CONFIGURACIÓN DE SUPABASE ---
- * Usando variables de entorno (Compatible con Vite/Frameworks)
- */
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL; 
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-/**
- * --- VALIDACIÓN Y CLIENTE ---
- */
+const supabaseUrl = 'https://cynwzzyzfwxajjhewpkg.supabase.co'; 
+const supabaseAnonKey = 'sb_publishable_y5DAvEYpomnlApGUHPta8w_malv21_h';
+
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn("Precaución: Las variables de entorno de Supabase no están definidas.");
+  console.error("Faltan variables de entorno de Supabase");
 }
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);

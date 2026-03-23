@@ -12,7 +12,6 @@ const signInForm = document.querySelector('.sign-in form');
 
 /**
  * --- ANIMACIONES DE TRANSICIÓN ---
- * Controla el cambio entre el panel de Login y Registro
  */
 registerBtn.addEventListener('click', () => container.classList.add("active"));
 loginBtn.addEventListener('click', () => container.classList.remove("active"));
@@ -28,12 +27,12 @@ signUpForm.addEventListener('submit', async (e) => {
     const password = signUpForm.querySelector('input[type="password"]').value;
 
     try {
-        const data = await signUp(email, password, name);
+        await signUp(email, password, name);
         
         showToast("¡Usuario registrado con éxito!", "success");
         signUpForm.reset();
         
-        // Retraso para permitir ver la notificación antes de cambiar de panel
+        // Retraso para que el usuario vea la burbuja
         setTimeout(() => {
             container.classList.remove("active");
         }, 1500);
@@ -58,7 +57,7 @@ signInForm.addEventListener('submit', async (e) => {
         if (data) {
             showToast("¡Sesión iniciada con éxito!", "success");
             
-            // Redirección tras éxito
+            // REDIRECCIÓN: Como el HTML está en la raíz, usamos ruta directa
             setTimeout(() => {
                 window.location.href = "login.html"; 
             }, 1500);
@@ -70,14 +69,11 @@ signInForm.addEventListener('submit', async (e) => {
 
 /**
  * --- SISTEMA DE NOTIFICACIONES (TOASTS) ---
- * @param {string} message - Texto a mostrar
- * @param {string} type - 'success' o 'error'
  */
 function showToast(message, type) {
     const toast = document.createElement('div');
     toast.innerText = message;
     
-    // Configuración de estilos visuales
     Object.assign(toast.style, {
         position: 'fixed',
         top: '20px',
@@ -95,7 +91,6 @@ function showToast(message, type) {
 
     document.body.appendChild(toast);
 
-    // Animación de salida y eliminación del elemento
     setTimeout(() => {
         toast.style.opacity = '0';
         setTimeout(() => toast.remove(), 500);
