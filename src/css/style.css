@@ -7,10 +7,8 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-body{
-    /* Fondo Gris a Blanco con desvanecimiento */
-    background-color: #f0f0f0;
-    background: linear-gradient(to right, #e0e0e0, #ffffff);
+body {
+    background: linear-gradient(to right, #3f3d3d, #d6d3d3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,9 +45,8 @@ body{
     margin: 15px 0 10px;
 }
 
-/* Botón con color Naranja Lava */
 .container button{
-    background-color: #ff4500; /* Naranja Lava */
+    background-color: #ff4500; 
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -152,7 +149,7 @@ body{
 }
 
 .social-icons a:hover {
-    color: #ff8c00; /* Naranja sutil al pasar el mouse */
+    color: #ff8c00; 
 }
 
 .toggle-container{
@@ -172,7 +169,6 @@ body{
     border-radius: 0 150px 100px 0;
 }
 
-/* Gradiente de Naranja Sutil a Naranja Lava */
 .toggle{
     background-color: #ff8c00;
     height: 100%;
@@ -219,4 +215,23 @@ body{
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+
+#user-name {
+    font-size: 2.5rem; 
+    font-weight: 700;   
+    color: #ff4500;    
+    display: inline-block;
+    margin-left: 10px;
+    text-transform: capitalize; 
+}
+
+.welcome-box h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }

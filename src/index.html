@@ -4,23 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Supabase</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Login | Supabase</title>
 </head>
 
 <body>
 
     <div class="container" id="container">
+        
         <div class="form-container sign-up">
             <form>
                 <h1>Crear Cuenta</h1>
                 <div class="social-icons">
-                </div>
+                    </div>
                 <span>Usa tu correo para registrarte</span>
-                <input type="text" placeholder="Nombre">
-                <input type="email" placeholder="Correo">
-                <input type="password" placeholder="Contraseña">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Correo" required>
+                <input type="password" placeholder="Contraseña" required>
                 <button type="submit">Registrarse</button>
             </form>
         </div>
@@ -29,10 +31,10 @@
             <form>
                 <h1>Iniciar Sesión</h1>
                 <div class="social-icons">
-                </div>
+                    </div>
                 <span>Usa tu credencial</span>
-                <input type="email" placeholder="Correo">
-                <input type="password" placeholder="Contraseña">
+                <input type="email" placeholder="Correo" required>
+                <input type="password" placeholder="Contraseña" required>
                 <a href="#">¿Olvidaste tu contraseña?</a>
                 <button type="submit">Entrar</button>
             </form>
@@ -40,21 +42,24 @@
 
         <div class="toggle-container">
             <div class="toggle">
+                
                 <div class="toggle-panel toggle-left">
                     <h1>¡Bienvenido de nuevo!</h1>
                     <p>Para mantenerte conectado, ingresa tus datos</p>
                     <button class="hidden" id="login">Iniciar Sesión</button>
                 </div>
+
                 <div class="toggle-panel toggle-right">
                     <h1>¡Hola, Amigo!</h1>
                     <p>Regístrate con tus datos para comenzar la aventura</p>
                     <button class="hidden" id="register">Registrarse</button>
                 </div>
+
             </div>
         </div>
     </div>
 
-<script type="module" src="js/script.js"></script>
-</body>
+    <script type="module" src="js/script.js"></script>
 
+</body>
 </html>

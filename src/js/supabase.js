@@ -1,11 +1,17 @@
-// src/js/supabase.js
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-const supabaseUrl = 'https://cynwzzyzfwxajjhewpkg.supabase.co' 
-const supabaseAnonKey = 'sb_publishable_y5DAvEYpomnlApGUHPta8w_malv21_h'
+/**
+ * --- CONFIGURACIÓN DE SUPABASE ---
+ * Usando variables de entorno (Compatible con Vite/Frameworks)
+ */
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL; 
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
+/**
+ * --- VALIDACIÓN Y CLIENTE ---
+ */
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error("Faltan variables de entorno de Supabase")
+  console.warn("Precaución: Las variables de entorno de Supabase no están definidas.");
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);

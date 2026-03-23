@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
     <title>Bienvenido | Dashboard</title>
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <div class="container" style="display: flex; justify-content: center; align-items: center; text-align: center;">
         <div class="welcome-box">
-            <h1>¡Bienvenido, <span id="user-name">Usuario</span>!</h1>
+            <h1>¡Bienvenido, <span id="user-name">Cargando...</span>!</h1>
             <p>Has iniciado sesión correctamente usando Supabase.</p>
             <br>
             <button id="logout-btn">Cerrar Sesión</button>
@@ -21,23 +23,19 @@
 
         const userNameDisplay = document.getElementById('user-name');
         const logoutBtn = document.getElementById('logout-btn');
-
-        // Función para verificar la sesión al cargar la página
         async function checkUser() {
             const { data: { user } } = await supabase.auth.getUser();
 
             if (user) {
-                // Mostramos el nombre guardado en los metadatos
                 userNameDisplay.textContent = user.user_metadata.full_name || user.email;
             } else {
-                // Si no hay usuario, redirigir al index
                 window.location.href = "index.html";
             }
         }
 
-        // Lógica para cerrar sesión
         logoutBtn.addEventListener('click', async () => {
             const { error } = await supabase.auth.signOut();
+            
             if (!error) {
                 alert("Sesión cerrada correctamente");
                 window.location.href = "index.html";
@@ -50,9 +48,3 @@
     </script>
 </body>
 </html>
-git init
-git add .
-git commit -m "Base completa (por implementar base de datos)"
-git branch -M main
-git remote add origin https://github.com/PoshuaDev-hub/LoginAnimado.git
-git push -u origin main
